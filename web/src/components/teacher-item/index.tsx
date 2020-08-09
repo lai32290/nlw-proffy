@@ -1,34 +1,53 @@
 import React from 'react';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '../../services/api';
 import './style.css';
 
-function TeacherItem() {
+export interface Teacher {
+    id: number,
+    avatar: string,
+    bio: string,
+    cost: number,
+    name: string,
+    subject: string,
+    whatsapp: string
+}
+
+interface TeacherItemProps {
+    teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+    const {  name, avatar, bio, cost, subject, whatsapp, id } = teacher;
+
+    function createNewConnectio() {
+        api.post('/connections', {
+            user_id: id
+        });
+    }
+
     return (
         <article className="teacher-item">
             <header>
-                <img src="https://source.unsplash.com/random/100x100" alt="" />
+                <img src={avatar} alt="" />
                 <div>
-                    <strong>Diego Fernandes</strong>
-                    <span>Química</span>
+                    <strong>{name}</strong>
+                    <span>{subject}</span>
                 </div>
             </header>
 
-            <p>
-                Entusiasta das melhores tecnologias de química avançada.
-                <br /><br />
-                Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
-            </p>
+            <p>{bio}</p>
 
             <footer>
                 <p>
                     Preço/hora
-                    <strong>R$ 80,00</strong>
+                    <strong>R$ {cost}</strong>
                 </p>
-                <button type="button">
+                <a href={`https://wa/me/55${whatsapp}`} target="black" onClick={createNewConnectio}>
                     <img src={whatsappIcon} alt="WhatsApp" />
                     Entrar em contato
-                </button>
+                </a>
             </footer>
         </article>
     );
