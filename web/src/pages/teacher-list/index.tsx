@@ -45,7 +45,8 @@ function TeacherList() {
                             { value: 'Matematica', label: 'Matematica' },
                             { value: 'Biologia', label: 'Biologia' },
                             { value: 'Geografia', label: 'Geografia' },
-                            { value: 'Historia', label: 'Historia' }
+                            { value: 'Historia', label: 'Historia' },
+                            { value: 'Programacao', label: 'Programacao' },
                         ]}
                         />
                     <Select
