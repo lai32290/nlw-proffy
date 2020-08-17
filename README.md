@@ -4,7 +4,7 @@
     Proffy
 </h1>
 
-Proffy is a platform to connect teacher and studants, a place where people can choose what subject they want to teach/learn and what is the best day of the week they want to do it.
+Proffy is a platform to connect teacher and students, a place where people can choose what subject they want to teach/learn and what is the best day of the week they want to do it.
 
 ## Technologies Involved
 
